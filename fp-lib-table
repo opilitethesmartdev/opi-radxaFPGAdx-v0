@@ -3,4 +3,5 @@
 	(lib (name "SamacSys_Parts") (type "KiCad") (uri "D:/Data/kicad/LibraryLoader/SamacSys_Parts.pretty") (options "") (descr ""))
 	(lib (name "SamacSys_Parts") (type "KiCad") (uri "D:/Data/kicad/LibraryLoader/SamacSys_Parts.pretty") (options "") (descr ""))
 	(lib (name "SamacSys_Parts") (type "KiCad") (uri "D:/Data/kicad/LibraryLoader/SamacSys_Parts.pretty") (options "") (descr ""))
+	(lib (name "USB-C-Power-tester") (type "KiCad") (uri "D:/Data/kicad/USB-C-Power-tester.pretty") (options "") (descr ""))
 )
