@@ -3,7 +3,7 @@ title: "radxaFPGAdx"
 github: "https://github.com/opilitethesmartdev/opi-radxaFPGAdx-v0"
 description: "HAT for my Radxa Zero 3E featuring an FPGA"
 created_at: "2026-10-15"
-total_time: "2h 36m"
+total_time: "4h 18m"
 ---
 
 # October 15, 2026: Set up the project
@@ -47,3 +47,25 @@ But i'd really want to test that first, so i'm actually thinking of making it a 
 Timelapse: https://lapse.hackclub.com/timelapse/Aux67nB0mxHi
 
 **Total time spent: 1h 54m**
+
+# October 23, 2026: Placed components, made basic routing
+<!-- fabricate:entry 1152 -->
+
+So, after one or maybe more sessions of preliminary work (specifically ideal diodes and the power control), i finally sat down a bit and did some basic routing:
+![](https://fabricate.hackclub-assets.com/c504c0d51d1e4ca0f8c9c64e06677fd0f7ea5477735f74739f901674185cd91b/image-png/image.png)
+I took the dimensions from the radxa, and made the PCB with it.
+Then, I added the two grounded mounting holes
+1. because radxa has them too
+2. Because it helps connect the ground pins
+
+The main issue (power control), has brought bad news: my original concept, of having both external USBs and the radxa be able to feed eachother (so i only need one USB cable), is *NOT* possible. The issue is simply that there is no way for me to reliably detect the radxa being powered when i'm already powering it externally (and because there is nothing at all between radxa's VBUS and the GPIO pin):
+![](https://fabricate.hackclub-assets.com/aaaa2f5ea49ce169add28abd436a8721c1c3605928106cc92c73c3794274140b/image-png/image.png)
+As we can see, VBUS and 5V_INPUT (which is the gpio pin) are directly connected, with nothing between them. The only possible other route would be to tap into the CC resistors, but they are these half a millimeter type things, good luck trying 😭✌️
+
+Meaning, the only way we i'll be able to power the radxa from the HAT is *manually*.
+Yes.
+I will have a jumper (or sth similar) that i will move around to configure power to the radxa (to be precise, radxa will be able to power the HAT by itself, because we *can* do control stuff there, the hat will not be able to power the radxa.
+
+Timelapse: https://lapse.hackclub.com/timelapse/aQNqX7tHH22X
+
+**Total time spent: 1h 42m**
